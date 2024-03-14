@@ -3,7 +3,7 @@ import { useState } from "react";
 import Course from "../Course/Course";
 import PropTypes from 'prop-types';
 
-const Courses = ({addDetails}) => {
+const Courses = ({handleClick}) => {
     const [courses, setCourses] = useState([]);
     useEffect(()=> {
         fetch('courses.json')
@@ -15,7 +15,7 @@ const Courses = ({addDetails}) => {
             {
              courses.map(course => <Course
              key={course.id}
-             addDetails={addDetails}
+             handleClick={handleClick}
             singleCourse={course}
              ></Course> )
             }
@@ -25,6 +25,6 @@ const Courses = ({addDetails}) => {
 
 
 Courses.propTypes = {
-    addDetails: PropTypes.func
+    handleClick: PropTypes.func
 }
 export default Courses;

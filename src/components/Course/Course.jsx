@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { FiDollarSign } from "react-icons/fi";
 import { IoBookOutline } from "react-icons/io5";
 
-const Course = ({singleCourse, addDetails}) => {
+const Course = ({singleCourse, handleClick}) => {
 
     const {name, description, photo, price, credit} = singleCourse;
 
@@ -19,7 +19,7 @@ const Course = ({singleCourse, addDetails}) => {
                     </div>
                     <div className="card-actions">
                         <button 
-                        onClick={() => addDetails(singleCourse)}
+                        onClick={() => handleClick(singleCourse)}
                         className="btn btn-sm w-full hover:bg-blue-600 btn-primary">Select</button>
                     </div>
                 </div>
@@ -30,7 +30,7 @@ const Course = ({singleCourse, addDetails}) => {
 
 Course.propTypes = {
     singleCourse: PropTypes.object,
-    addDetails: PropTypes.func,
+    handleClick: PropTypes.func,
 }
 
 export default Course;
