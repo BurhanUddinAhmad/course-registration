@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Course from "../Course/Course";
+import PropTypes from 'prop-types';
 
-
-const Courses = () => {
+const Courses = ({addDetails}) => {
     const [courses, setCourses] = useState([]);
     useEffect(()=> {
         fetch('courses.json')
@@ -15,6 +15,7 @@ const Courses = () => {
             {
              courses.map(course => <Course
              key={course.id}
+             addDetails={addDetails}
             singleCourse={course}
              ></Course> )
             }
@@ -22,4 +23,8 @@ const Courses = () => {
     );
 };
 
+
+Courses.propTypes = {
+    addDetails: PropTypes.func
+}
 export default Courses;
